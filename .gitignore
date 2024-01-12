@@ -1,7 +1,6 @@
 # Gradle
 .gradle
 build/
-.github/
 .github
 
 # Ignore Gradle GUI config
@@ -9,4 +8,3 @@ gradle-app.setting
 
 /var/log/*
 !/var/log/.gitkeep
-/.github/
