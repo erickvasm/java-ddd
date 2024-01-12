@@ -37,16 +37,3 @@ This is a repository intended to serve as a starting point if you want to bootst
 * ⚛ [Java OOP Examples](https://github.com/CodelyTV/java-oop-examples)
 * 🧱 [Java SOLID Examples](https://github.com/CodelyTV/java-solid-examples)
 * 🥦 [Java DDD Example](https://github.com/CodelyTV/java-ddd-example)
-
-### 🐘 PHP
-
-* 📂 [PHP Basic Skeleton](https://github.com/CodelyTV/php-basic-skeleton)
-* 🎩 [PHP DDD Skeleton](https://github.com/CodelyTV/php-ddd-skeleton)
-* 🥦 [PHP DDD Example](https://github.com/CodelyTV/php-ddd-example)
-
-### 🧬 Scala
-
-* 📂 [Scala Basic Skeleton](https://github.com/CodelyTV/scala-basic-skeleton)
-* ⚡ [Scala Basic Skeleton (g8 template)](https://github.com/CodelyTV/scala-basic-skeleton.g8)
-* ⚛ [Scala Examples](https://github.com/CodelyTV/scala-examples)
-* 🥦 [Scala DDD Example](https://github.com/CodelyTV/scala-ddd-example)
