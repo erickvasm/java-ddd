@@ -1,6 +1,8 @@
 // Common for all projects
 allprojects {
   apply plugin: 'java'
+  apply plugin: 'io.spring.dependency-management'
+  apply plugin: 'org.springframework.boot'
 
   sourceCompatibility = 1.8
   targetCompatibility = 1.8
@@ -15,8 +17,9 @@ allprojects {
     implementation 'com.vlkan.log4j2:log4j2-logstash-layout:0.19'
 
     // Test
-    testCompile 'org.junit.jupiter:junit-jupiter-api:5.5.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.5.1'
+    testCompile 'org.junit.jupiter:junit-jupiter-api:5.3.2'
+    testCompile "org.mockito:mockito-core:2.+"
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.2'
   }
 
   test {
@@ -27,9 +30,15 @@ allprojects {
     }
   }
 
-  task hello {
+
+  task view_paths {
     doLast { task ->
-      println "I'm $task.project.name"
+      println "$task.project.name"
+      println "------------------"
+      println "Main: $sourceSets.main.java.srcDirTrees"
+      println "   Resources: $sourceSets.main.resources.srcDirTrees"
+      println "Tests: $sourceSets.test.java.srcDirTrees"
+      println "   Resources: $sourceSets.test.resources.srcDirTrees"
     }
   }
 }
@@ -48,6 +57,20 @@ subprojects {
       java { srcDirs = ['test'] }
       resources { srcDirs = ['test/resources'] }
     }
+  }
+
+  dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+  }
+
+  bootJar {
+    enabled = false
+  }
+
+  jar {
+    enabled = true
   }
 }
 
@@ -74,19 +97,20 @@ sourceSets {
 }
 
 apply plugin: 'application'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
 
 bootJar {
   baseName = 'java-ddd-skeleton'
-  version =  '0.0.1'
+  version = '0.0.1'
 }
 
-mainClassName = 'tv.codely.Starter'
+mainClassName = 'tv.codely.app.Starter'
 
 dependencies {
   compile("org.springframework.boot:spring-boot-starter-web")
 
-  compile project(":backoffice")
-  compile project(":mooc")
+  implementation project(":shared")
+  implementation project(":backoffice")
+  implementation project(":mooc")
+
+  testCompile("org.springframework.boot:spring-boot-starter-test")
 }
