@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+// In the course, they use @Serivice
 @Service
 public interface CourseRepository {
     void save(Course course);

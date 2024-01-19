@@ -8,6 +8,7 @@ import java.util.Optional;
 
 public final class InMemoryCourseRepository implements CourseRepository {
 
+    // I supose that this is a database for now
     private HashMap<String, Course> courses = new HashMap<>();
 
     @Override
